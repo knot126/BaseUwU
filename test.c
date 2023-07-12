@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]) {
 		return status;
 	}
 	
-	printf("Decoded:\n%s\n\n", decoded);
+	printf("Decoded (length = 0x%zx):\n%s\n\n", decoded_length, decoded);
 	
 	// Test validator
 	char *validations[] = {
