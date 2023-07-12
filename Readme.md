@@ -1,3 +1,5 @@
+<img alt="BaseUwU logo" src="docs/logo.svg" width="100%"/>
+
 # BaseUwU Binary to Text Encoding
 
 BaseUwU is a **THICCCC** binary to text encowoding using only `UwU`s and `OwO`s for maxium communication clarity among furries and weebs.
@@ -87,7 +89,7 @@ Don't. Or do. I don't care, really.
 
 ## Code quality
 
-¯\\_(ツ)_/¯
+¯\\\_(ツ)\_/¯
 
 ## Licence
 
