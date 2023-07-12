@@ -6,7 +6,7 @@ It's extremely inefficent &mdash; **THICCCC** with four C's, that is &mdash; at 
 
 ## Usage
 
-This is a single header C library, in the style of an STB library. It only needs support for `strlen` and `malloc`, so it should run basically anywhere. In the future, we might support custom names for these functions if you need to use non-default ones, in a way that mirrors how stb libraries do it.
+This is a single header C library, in the style of an STB library. It does not need support for any C standard library functions if you provide a custom `malloc`-compatible function; otherwise, it only requires that `malloc` is available.
 
 ### Including
 
@@ -16,6 +16,18 @@ To include the library implementation, define `BASE_UWU_IMPLEMENTATION` before `
 #define BASE_UWU_IMPLEMENTATION
 #include "baseuwu.h"
 ```
+
+Otherwise, just include `baseuwu.h`.
+
+To specify a custom memory allocation function, define `BASE_UWU_ALLOC(x)` before including the implementation:
+
+```c
+#define BASE_UWU_IMPLEMENTATION
+#define BASE_UWU_ALLOC(x) MyCustomAlloc(x)
+#include "baseuwu.h"
+```
+
+The default `malloc` is used if one is not specified.
 
 ### Encoding
 
@@ -69,6 +81,14 @@ void something() {
 }
 ```
 
-# Licence
+## Contributing
+
+Don't. Or do. I don't care, really.
+
+## Code quality
+
+¯\\_(ツ)_/¯
+
+## Licence
 
 No.
