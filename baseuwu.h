@@ -9,11 +9,11 @@
 #include <inttypes.h>
 #include <stdbool.h>
 
-#ifndef BASE_UWU_IMPLEMENTATION
-
 int UwU_Encode(size_t input_size, const uint8_t *input_data, char **output_data_pointer);
+bool UwU_Validate(const char *input_data);
+int UwU_Decode(const char *input_data, size_t *output_size_ptr, const uint8_t **output_data_ptr);
 
-#else
+#ifdef BASE_UWU_IMPLEMENTATION
 
 int UwU_Encode(size_t input_size, const uint8_t *input_data, char **output_data_pointer) {
 	/**

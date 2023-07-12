@@ -32,5 +32,17 @@ int main(int argc, const char *argv[]) {
 	
 	printf("Decoded:\n%s\n\n", decoded);
 	
+	// Test validator
+	char *validations[] = {
+		"UwUUwUOwO", // Not enough data
+		"UwUUwUOwOUwUUwUOwOOwOUwU", // This should be okay
+		"ASOKRAOKERKOERKOEOEOOEOO", // Bad chars
+		"UwUOwOUwUOwOUwUOwOAwAOwO", // Bad chars ('w's are correct)
+	};
+	
+	for (size_t i = 0; i < sizeof(validations) / sizeof(*validations); i++) {
+		printf("Is %s valid? %x\n", validations[i], UwU_Validate(validations[i]));
+	}
+	
 	return 0;
 }
