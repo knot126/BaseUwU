@@ -15,6 +15,18 @@ int UwU_Decode(const char *input_data, size_t *output_size_ptr, const uint8_t **
 
 #ifdef BASE_UWU_IMPLEMENTATION
 
+#ifndef BASE_UWU_ALLOC
+	#define BASE_UWU_ALLOC(x) malloc(x)
+#endif
+
+static size_t UwU_Strlen(const char *string) {
+	size_t len = 0;
+	
+	while (string[len]) len++;
+	
+	return len;
+}
+
 int UwU_Encode(size_t input_size, const uint8_t *input_data, char **output_data_pointer) {
 	/**
 	 * Encode the data to BaseUwU
@@ -32,7 +44,7 @@ int UwU_Encode(size_t input_size, const uint8_t *input_data, char **output_data_
 	size_t output_size = input_size * 24; // 3 bytes per UwU/OwO * 8 bits per char
 	
 	// Allocate the output data
-	char *output_data = (char *) malloc(output_size + 1); // Need NUL byte
+	char *output_data = (char *) BASE_UWU_ALLOC(output_size + 1); // Need NUL byte
 	
 	if (!output_data) {
 		return 1;
@@ -74,7 +86,7 @@ bool UwU_Validate(const char *input_data) {
 	 * @return true if valid, false if not
 	 */
 	
-	size_t length = strlen(input_data);
+	size_t length = UwU_Strlen(input_data);
 	
 	// BaseUwU needs to have 8 bits per byte at 3 chars per bit, so length must
 	// be BaseUwUDataLength % 24 == 0
@@ -120,13 +132,13 @@ int UwU_Decode(const char *input_data, size_t *output_size_ptr, const uint8_t **
 		return 2;
 	}
 	
-	size_t input_size = strlen(input_data);
+	size_t input_size = UwU_Strlen(input_data);
 	
 	// Find the size of the output
 	size_t output_size = input_size / 24;
 	
 	// Allocate the output data
-	uint8_t *output_data = (uint8_t *) malloc(output_size);
+	uint8_t *output_data = (uint8_t *) BASE_UWU_ALLOC(output_size);
 	
 	if (!output_data) {
 		return 1;
