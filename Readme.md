@@ -4,7 +4,7 @@
 
 BaseUwU is a **THICCCC** binary to text encowoding using only `UwU`s and `OwO`s for maxium communication clarity among furries and weebs.
 
-It's extremely inefficent &mdash; **THICCCC** with four C's, that is &mdash; at 24 output bytes per input byte - making it the perfect fit to keep fat fetishsts intrested in your project!
+It's extremely inefficent &mdash; **THICCCC** with four C's, that is &mdash; at 24 output bytes per input byte. It's the perfect fit for projects which require maxium inefficiency!
 
 ## Usage
 
